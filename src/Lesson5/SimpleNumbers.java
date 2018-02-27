@@ -16,7 +16,7 @@ public class SimpleNumbers {
             for (int i = 2; i <= readNumber; i++) {
                 for (int j = 2; j <= i; j++) {
                     if (i == j) {
-                        result += String.format("%d ",i);
+                        result += String.format("%d ", i);
                     } else if (i % j == 0) {
                         break;
                     }
