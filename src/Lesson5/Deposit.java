@@ -6,29 +6,25 @@ public class Deposit {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int capitalizationPeriod = 1;
-
-        System.out.println("Введите сумму денежных средств:");
+        System.out.println("Введите сумму вклада:");
         int initialAmount = scanner.nextInt();
 
-        System.out.println("Ввдедите срок депозита в месяцах:");
-        int month = scanner.nextInt();
+        System.out.println("Введите срок вклада в месяцах:");
+        int months = scanner.nextInt();
 
-        System.out.println("Введи ставку:");
+        System.out.println("Введите ставку:");
         double rate = scanner.nextDouble();
 
-        double profit = initialAmount * rate * month / 12 / 100;
-        double payout = profit + initialAmount;
+        int capitalizationPeriod = 1;
 
-        System.out.println("Выплата в конце срока =" + payout);
-        System.out.println("Прибыль = " + profit);
+        int quantityCapitalizationPeriod = months / capitalizationPeriod;
 
-        int profitPeriods = month / capitalizationPeriod;
+        double partialAmount = initialAmount;
 
-        double payoutWithCapitalization = initialAmount * (Math.pow((1 + rate * capitalizationPeriod / 12 / 100), profitPeriods));
-        double profitWithCapitalization = payoutWithCapitalization - initialAmount;
-
-        System.out.println("Выплата с капитализацией в конце срока =" + payoutWithCapitalization);
-        System.out.println("Прибыль с капитализацией= " + profitWithCapitalization);
+        for (int i = 1; i <= quantityCapitalizationPeriod; i++) {
+            partialAmount += partialAmount * (capitalizationPeriod * rate / 12 / 100);
+        }
+        double profit = partialAmount - initialAmount;
+        System.out.println("Прибыль составила" + profit);
     }
 }
