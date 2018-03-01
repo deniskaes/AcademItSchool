@@ -6,10 +6,10 @@ public class MultiplicationTable {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Введите размерность таблицы:");
+        System.out.println("Введите размерность таблицы от 1 до 31:");
         int sizeTable = scanner.nextInt();
 
-        if (sizeTable < 1) {
+        if (sizeTable < 1 || sizeTable > 31) {
             System.out.println("Не верная размерность!");
         } else {
             System.out.print("    ");
