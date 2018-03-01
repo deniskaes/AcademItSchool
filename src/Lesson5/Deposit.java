@@ -20,7 +20,7 @@ public class Deposit {
         double profit = initialAmount * rate * month / 12 / 100;
         double payout = profit + initialAmount;
 
-        System.out.println("Выплата в конце срока =" + payout);
+        System.out.println("Выплата в конце срока =" + payout) ;
         System.out.println("Прибыль = " + profit);
 
         int profitPeriods = month / capitalizationPeriod;
