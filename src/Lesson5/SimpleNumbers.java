@@ -8,7 +8,6 @@ public class SimpleNumbers {
 
         System.out.println("Введите целое число:");
         int readNumber = scanner.nextInt();
-        String result = "";
 
         if (readNumber < 2) {
             System.out.println("Не бывает простых чисел меньше " + readNumber);
@@ -16,13 +15,12 @@ public class SimpleNumbers {
             for (int i = 2; i <= readNumber; i++) {
                 for (int j = 2; j <= i; j++) {
                     if (i == j) {
-                        result += String.format("%d ", i);
+                        System.out.print(i + " ");
                     } else if (i % j == 0) {
                         break;
                     }
                 }
             }
-            System.out.printf("Простые числа до %d%n %s", readNumber, result);
         }
     }
 }

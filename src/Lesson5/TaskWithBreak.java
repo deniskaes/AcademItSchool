@@ -15,7 +15,7 @@ public class TaskWithBreak {
                 System.out.println("В точку.");
                 break;
             } else {
-                System.out.println("Мимо=)");
+                System.out.println("Мимо. Попробуй еще раз.");
             }
         }
     }
