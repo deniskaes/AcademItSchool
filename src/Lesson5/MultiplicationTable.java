@@ -8,42 +8,27 @@ public class MultiplicationTable {
 
         System.out.println("Введите размерность таблицы:");
         int sizeTable = scanner.nextInt();
-        String squareMaxNumber = "" + sizeTable * sizeTable;
-        int numberSpaces = squareMaxNumber.length();
-        String emptinessInArea ="";
 
-        for (int i = 0; i<numberSpaces; i++){
-            emptinessInArea += "e";
-        }
-        String MaxNumber = "" + sizeTable;
-        int numberSpacesInHead = MaxNumber.length();
-        String emptinessInHead ="";
-
-        for (int i = 0; i<numberSpaces; i++){
-            emptinessInHead += "e";
-        }
-
-        for (int i = 0; i <= sizeTable; i++) {
-            String tableLine = "";
-            for (int j = 0; j <= sizeTable; j++) {
-                if (i == 0 && j == 0) {
-                    tableLine += String.format("%s ", emptinessInHead);
-                }
-                if (i == 0 && j != 0) {
-                    tableLine += String.format("%s%s",emptinessInHead, j);
-                }
-                if (i != 0 && j == 0) {
-                    tableLine += String.format("%s%s|",emptinessInHead, i);
-                }
-                if (i != 0 && j != 0) {
-                    tableLine += String.format("%s", j);
-                }
+        if (sizeTable < 1) {
+            System.out.println("Не верная размерность!");
+        } else {
+            System.out.print("    ");
+            for (int i = 1; i <= sizeTable; i++) {
+                System.out.printf("%4d", i);
             }
-            System.out.println(tableLine);
-            if (i == 0) {
-                System.out.println("-------------------------");
+            System.out.println();
+
+            for (int i = 1; i <= (sizeTable + 1) * 4; i++)
+                System.out.print("-");
+            System.out.println();
+
+            for (int i = 1; i <= sizeTable; i++) {
+                System.out.printf("%3d|", i);
+                for (int j = 1; j <= sizeTable; j++) {
+                    System.out.printf("%4d", i * j);
+                }
+                System.out.println();
             }
         }
-        System.out.println(emptinessInArea);
     }
 }
