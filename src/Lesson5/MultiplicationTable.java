@@ -18,8 +18,9 @@ public class MultiplicationTable {
             }
             System.out.println();
 
-            for (int i = 1; i <= (sizeTable + 1) * 4; i++)
+            for (int i = 1; i <= (sizeTable + 1) * 4; i++) {
                 System.out.print("-");
+            }
             System.out.println();
 
             for (int i = 1; i <= sizeTable; i++) {

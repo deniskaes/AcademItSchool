@@ -16,15 +16,14 @@ public class ArithmeticFor {
             secondNumber = temp;
         }
 
-        double arithmeticAverage;
         int sum = 0;
         int numberAddendum = secondNumber - firstNumber + 1;
 
-        for (int i = 0; i < numberAddendum; i++) {
-            sum += firstNumber + i;
+        for (int i = 1; i <= numberAddendum; i++) {
+            sum += firstNumber + i-1;
         }
 
-        arithmeticAverage = (double) sum / numberAddendum;
+        double arithmeticAverage = (double) sum / numberAddendum;
         System.out.printf("Среднее арифметическое с %d до %d равно %.2f", firstNumber, secondNumber, arithmeticAverage);
     }
 }
