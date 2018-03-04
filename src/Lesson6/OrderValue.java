@@ -3,15 +3,21 @@ package Lesson6;
 import java.util.Scanner;
 
 public class OrderValue {
-    public static double getValue(int quantityFirstType, int quantitySecondType, double costFistType, double costSecondType) {
+    public static double calcDiscount(int quantityFirstType, int quantitySecondType, double costFistType, double costSecondType) {
         double costBasket = quantityFirstType * costFistType + quantitySecondType * costSecondType;
         double rate;
-        if (costBasket >= 1000 && quantityFirstType + quantitySecondType >= 10) {
-            rate = 0.90;
-        } else if (quantityFirstType + quantitySecondType >= 10 || costBasket >= 1000) {
-            rate = 0.95;
+        final int STOCK_PRICE = 1000;
+        final int STOCK_QUANTITY = 10;
+        final double BIG_DISCOUNT = 0.9;
+        final double LITTLE_DISCOUNT = 0.95;
+        final double NO_DISCOUNT = 1;
+
+        if (costBasket >= STOCK_PRICE && quantityFirstType + quantitySecondType >= STOCK_QUANTITY) {
+            rate = BIG_DISCOUNT;
+        } else if (quantityFirstType + quantitySecondType >= STOCK_QUANTITY || costBasket >= STOCK_PRICE) {
+            rate = LITTLE_DISCOUNT;
         } else {
-            rate = 1;
+            rate = NO_DISCOUNT;
         }
         return costBasket * rate;
     }
@@ -27,6 +33,6 @@ public class OrderValue {
         int quantitySecondType = scanner.nextInt();
         double costSecondType = scanner.nextDouble();
 
-        System.out.println(getValue(quantityFistType, quantitySecondType, costFirstType, costSecondType));
+        System.out.println(calcDiscount(quantityFistType, quantitySecondType, costFirstType, costSecondType));
     }
 }
