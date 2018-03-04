@@ -1,7 +1,7 @@
 package Lesson6;
 
 public class FirstFunction {
-    public static double getSum(double x, double y) {
+    public static double calc5XpPlus3Y(double x, double y) {
         return 3 * x + 4 * y;
     }
 
@@ -37,9 +37,9 @@ public class FirstFunction {
     }
 
     public static void main(String[] args) {
-        double result = getSum(1.1, 5.5);
+        double result = calc5XpPlus3Y(1.1, 5.5);
         System.out.println("Результат функции сложения = " + result);
-        System.out.println("Результат функции сложения = " + getSum(5.5, 1.1));
+        System.out.println("Результат функции сложения = " + calc5XpPlus3Y(5.5, 1.1));
 
         double testAverage = getAverage(1, 10);
         System.out.println("Среднее арифметическое = " + testAverage);

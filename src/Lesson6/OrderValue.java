@@ -4,15 +4,15 @@ import java.util.Scanner;
 
 public class OrderValue {
     public static double getValue(int firstType, int secondType, double costFistType, double costSecondType) {
-        double rate;
         double costBasket = firstType * costFistType + secondType * costSecondType;
-
+        double rate;
         if (costBasket >= 1000 && firstType + secondType >= 10) {
             rate = 0.90;
         } else if (firstType + secondType >= 10 || costBasket >= 1000) {
             rate = 0.95;
-        } else rate = 1;
-
+        } else {
+            rate = 1;
+        }
         return costBasket * rate;
     }
 
