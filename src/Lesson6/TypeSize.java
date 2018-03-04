@@ -26,15 +26,15 @@ public class TypeSize {
     }
 
     public static void main(String[] args) {
-        System.out.println(getTypeSize((byte) 20));
+        System.out.println("byte занимает " + getTypeSize((byte) 20) + " байт");
         short number = 12304;
-        System.out.println(getTypeSize(number));
+        System.out.println("short занимает " + getTypeSize(number) + " байт");
         long number2 = 234234l;
-        System.out.println(getTypeSize(number2));
+        System.out.println("long занимает " + getTypeSize(number2) + " байт");
         float number3 = 456435f;
-        System.out.println(getTypeSize(number3));
-        System.out.println(getTypeSize(23423));
-        System.out.println(getTypeSize(34897535d));
+        System.out.println("float занимает " + getTypeSize(number3) + " байт");
+        System.out.println("int занимает " + getTypeSize(23423) + " байт");
+        System.out.println("double занимает " + getTypeSize(34897535d) + " байт");
 
     }
 }
