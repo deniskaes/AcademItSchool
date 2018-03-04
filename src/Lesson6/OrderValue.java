@@ -3,12 +3,12 @@ package Lesson6;
 import java.util.Scanner;
 
 public class OrderValue {
-    public static double getValue(int firstType, int secondType, double costFistType, double costSecondType) {
-        double costBasket = firstType * costFistType + secondType * costSecondType;
+    public static double getValue(int quantityFirstType, int quantitySecondType, double costFistType, double costSecondType) {
+        double costBasket = quantityFirstType * costFistType + quantitySecondType * costSecondType;
         double rate;
-        if (costBasket >= 1000 && firstType + secondType >= 10) {
+        if (costBasket >= 1000 && quantityFirstType + quantitySecondType >= 10) {
             rate = 0.90;
-        } else if (firstType + secondType >= 10 || costBasket >= 1000) {
+        } else if (quantityFirstType + quantitySecondType >= 10 || costBasket >= 1000) {
             rate = 0.95;
         } else {
             rate = 1;
@@ -20,13 +20,13 @@ public class OrderValue {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Введите количество и цену первого товара:");
-        int fistType = scanner.nextInt();
+        int quantityFistType = scanner.nextInt();
         double costFirstType = scanner.nextDouble();
 
         System.out.println("Введите количество и цену второго товара:");
-        int secondType = scanner.nextInt();
+        int quantitySecondType = scanner.nextInt();
         double costSecondType = scanner.nextDouble();
 
-        System.out.println(getValue(fistType, secondType, costFirstType, costSecondType));
+        System.out.println(getValue(quantityFistType, quantitySecondType, costFirstType, costSecondType));
     }
 }
