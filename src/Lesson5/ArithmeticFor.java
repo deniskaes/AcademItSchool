@@ -16,11 +16,11 @@ public class ArithmeticFor {
             secondNumber = temp;
         }
 
-        int sum = 0;
         int numberAddendum = secondNumber - firstNumber + 1;
+        int sum = 0;
 
-        for (int i = 1; i <= numberAddendum; i++) {
-            sum += firstNumber + i-1;
+        for (int i = firstNumber; i <= secondNumber; i++) {
+            sum += i;
         }
 
         double arithmeticAverage = (double) sum / numberAddendum;

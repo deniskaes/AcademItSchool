@@ -7,20 +7,23 @@ public class Deposit {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Введите сумму вклада:");
-        final int INITIAL_AMOUNT = scanner.nextInt();
+        int initialAmount = scanner.nextInt();
 
         System.out.println("Введите срок вклада в месяцах:");
-        final int MONTHS = scanner.nextInt();
+        int months = scanner.nextInt();
 
         System.out.println("Введите ставку:");
-        final double RATE = scanner.nextDouble();
+        double rate = scanner.nextDouble();
+        final int MONTHS_IN_YEAR = 12;
+        final int PCT = 100;
 
-        double partialAmount = INITIAL_AMOUNT;
+        double partialAmount = initialAmount;
 
-        for (int i = 1; i <= MONTHS; i++) {
-            partialAmount += partialAmount * (1 * RATE / 12 / 100);
+        for (int i = 1; i <= months; i++) {
+            partialAmount += partialAmount * (rate / MONTHS_IN_YEAR / PCT);
         }
-        double profit = partialAmount - INITIAL_AMOUNT;
-        System.out.println("Прибыль составила" + profit);
+        double profit = partialAmount - initialAmount;
+        System.out.println("Прибыль составила: " + profit);
+        System.out.println("Сумма выплаты в конце срока вкоада: " + partialAmount);
     }
 }
