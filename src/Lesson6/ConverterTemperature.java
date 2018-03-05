@@ -13,6 +13,12 @@ public class ConverterTemperature {
     }
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите температуру в градусах Цельсия: ");
+        double degreesCelsius = scanner.nextDouble();
+
+        System.out.println("Температура в Кельвинах " + convertCelsiusToKelvin(degreesCelsius));
+        System.out.println("Температура в Фаренгейтах " + convertCelsiusToFahrenheit(degreesCelsius));
     }
 
 }
