@@ -1,6 +1,5 @@
 package Lesson7;
 
-import java.util.Scanner;
 
 public class Range {
     private double from;
@@ -34,11 +33,11 @@ public class Range {
     }
 
     public double getDistance() {
-        return getTo() - getFrom() + 1;
+        return Math.abs(to - from);
     }
 
     public boolean isInside(double number) {
-        return (number >= getFrom() && number <= getTo());
+        return (number >= from && number <= to);
 
     }
 }
