@@ -11,21 +11,35 @@ public class Range {
             this.from = from;
             this.to = to;
         } else {
-            this.from = to;
-            this.to = from;
+            this.to = to;
+            this.from = from;
         }
+    }
+
+
+    public double getFrom() {
+        return from;
+    }
+
+    public void setFrom(double from) {
+        this.from = from;
+    }
+
+    public double getTo() {
+        return to;
+    }
+
+    public void setTo(double to) {
+        this.to = to;
     }
 
     public double getDistance() {
-        return to - from;
+        return getTo() - getFrom() + 1;
     }
 
     public boolean isInside(double number) {
-        if (number >= from && number <= to) {
-            return true;
-        } else {
-            return false;
-        }
+        return (number >= getFrom() && number <= getTo());
+
     }
 
     public static void main(String[] args) {
@@ -39,5 +53,6 @@ public class Range {
 
         Range range = new Range(from, to);
         System.out.println("Результат проверки принадлежности = " + range.isInside(number));
+        System.out.println("Длина интервала = " + range.getDistance());
     }
 }

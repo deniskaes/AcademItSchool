@@ -1,9 +1,17 @@
 package Lesson7;
 
+import java.util.Scanner;
+
 public class Contact {
     private String firstName;
     private String lastName;
     private String phoneNumber;
+
+    public Contact(String firstName, String lastName, String phoneNumber) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.phoneNumber = phoneNumber;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -30,10 +38,15 @@ public class Contact {
     }
 
     public static void main(String[] args) {
-        Contact contact1 = new Contact();
-        contact1.setFirstName("Esaulov");
-        contact1.setLastName("Denis");
-        contact1.setPhoneNumber("+79130000001");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите фамилию: ");
+        String firstName = scanner.nextLine();
+        System.out.println("Ведите имя:");
+        String lastName = scanner.nextLine();
+        System.out.println("телефон:");
+        String phoneNumber = scanner.nextLine();
+
+        Contact contact1 = new Contact(firstName, lastName, phoneNumber);
 
         System.out.println(contact1.getFirstName() + " " + contact1.getLastName() + " " + contact1.getPhoneNumber());
     }
