@@ -8,25 +8,24 @@ public class Palindrome {
         if (readLine.length() == 0) {
             return false;
         }
-        for (int i = 0; i < readLine.length(); i++) {
-            if (Character.isLetterOrDigit(readLine.charAt(i))) {
-                break;
-            }
-            if (i == readLine.length() - 1) {
-                return false;
-            }
-        }
-        for (int m = readLine.length() - 1, i = 0; i < m; i++, m--) {
-            while (!Character.isLetterOrDigit(readLine.charAt(i)) || !Character.isLetterOrDigit(readLine.charAt(m))) {
-                if (!Character.isLetterOrDigit(readLine.charAt(i))) {
+        int i = 0;
+        int m = readLine.length() - 1;
+
+        while (i < m) {
+            if (Character.toLowerCase(readLine.charAt(i)) == Character.toLowerCase(readLine.charAt(m))) {
+                i++;
+                m--;
+            } else {
+                if (!Character.isLetter(readLine.charAt(i)) && Character.isLetter(readLine.charAt(m))) {
                     i++;
-                }
-                if (!Character.isLetterOrDigit(readLine.charAt(m))) {
+                } else if (!Character.isLetter(readLine.charAt(m)) && Character.isLetter(readLine.charAt(i))) {
                     m--;
+                } else if (!Character.isLetter(readLine.charAt(m)) && !Character.isLetter(readLine.charAt(i))){
+                    i++;
+                    m--;
+                } else {
+                    return false;
                 }
-            }
-            if (Character.toLowerCase(readLine.charAt(i)) != Character.toLowerCase(readLine.charAt(m))) {
-                return false;
             }
         }
         return true;
