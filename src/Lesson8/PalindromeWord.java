@@ -7,7 +7,7 @@ public class PalindromeWord {
         if (readLine.length() == 0) {
             return false;
         } else {
-            for (int j =0 ,i = 0; i <= (readLine.length() - 1) / 2; ++i) {
+            for (int j =0 ,i = 0; i < (readLine.length()) / 2; ++i) {
                 if (Character.toLowerCase(readLine.charAt(i)) != Character.toLowerCase(readLine.charAt(readLine.length() - 1 - i))) {
                     return false;
                 }

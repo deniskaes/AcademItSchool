@@ -2,31 +2,22 @@ package Lesson8;
 
 import java.util.Scanner;
 
-public class Palindrome {
-
+public class PalindromeWrong {
     public static boolean isPalindrome(String readLine) {
         if (readLine.length() == 0) {
             return false;
         }
-        for (int i = 0; i < readLine.length(); i++) {
-            if (Character.isLetterOrDigit(readLine.charAt(i))) {
-                break;
-            }
-            if (i == readLine.length() - 1) {
-                return false;
-            }
-        }
+        int whiteSpaceLobbyPart = 0;
+        int whiteSpaceRearPart = 0;
         for (int m = readLine.length() - 1, i = 0; i < m; i++, m--) {
-            while (!Character.isLetterOrDigit(readLine.charAt(i)) || !Character.isLetterOrDigit(readLine.charAt(m))) {
-                if (!Character.isLetterOrDigit(readLine.charAt(i))) {
-                    i++;
+            if (Character.toLowerCase(readLine.charAt(i - whiteSpaceRearPart)) != Character.toLowerCase(readLine.charAt(m + whiteSpaceLobbyPart))) {
+                if (Character.isWhitespace(readLine.charAt(i - whiteSpaceRearPart))) {
+                    whiteSpaceLobbyPart++;
+                } else if (Character.isWhitespace(readLine.charAt(m + whiteSpaceLobbyPart))) {
+                    whiteSpaceRearPart++;
+                } else {
+                    return false;
                 }
-                if (!Character.isLetterOrDigit(readLine.charAt(m))) {
-                    m--;
-                }
-            }
-            if (Character.toLowerCase(readLine.charAt(i)) != Character.toLowerCase(readLine.charAt(m))) {
-                return false;
             }
         }
         return true;
@@ -44,5 +35,4 @@ public class Palindrome {
         }
     }
 }
-
-
+//Аргентина, манит негра
