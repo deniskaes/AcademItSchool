@@ -10,7 +10,6 @@ public class Palindrome {
         }
         int i = 0;
         int m = readLine.length() - 1;
-
         while (i < m) {
             if (Character.toLowerCase(readLine.charAt(i)) == Character.toLowerCase(readLine.charAt(m))) {
                 i++;
@@ -20,7 +19,7 @@ public class Palindrome {
                     i++;
                 } else if (!Character.isLetter(readLine.charAt(m)) && Character.isLetter(readLine.charAt(i))) {
                     m--;
-                } else if (!Character.isLetter(readLine.charAt(m)) && !Character.isLetter(readLine.charAt(i))){
+                } else if (!Character.isLetter(readLine.charAt(m)) && !Character.isLetter(readLine.charAt(i))) {
                     i++;
                     m--;
                 } else {
