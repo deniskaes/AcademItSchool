@@ -3,8 +3,10 @@ package Lesson11;
 public class MinElementArray {
 
     public static int minElementArray(int[] a, int start) {
+
         int indexMinElement = start;
         int minElement = a[start];
+
         if (start == a.length - 1) {
             return indexMinElement;
         } else if (start < a.length - 1) {

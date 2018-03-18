@@ -12,9 +12,10 @@ public class Power {
 
     public static double powNonRecursion(int number, int power) {
         int result = 1;
-        while (power > 0) {
+        int i = power;
+        while (i > 0) {
             result *= number;
-            power--;
+            i--;
         }
         return result;
     }

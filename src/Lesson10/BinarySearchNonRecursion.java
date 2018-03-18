@@ -4,7 +4,6 @@ public class BinarySearchNonRecursion {
     public static int binarySearch(int[] a, int x) {
         int left = 0;
         int right = a.length - 1;
-        int numberNotFound = -1;
 
         while (left <= right) {
             int middle = (left + right) / 2;
@@ -16,7 +15,7 @@ public class BinarySearchNonRecursion {
                 right = middle - 1;
             }
         }
-        return numberNotFound;
+        return -1;
     }
 
     public static void main(String[] args) {
