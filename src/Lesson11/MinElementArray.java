@@ -4,20 +4,16 @@ public class MinElementArray {
 
     public static int minElementArray(int[] a, int start) {
 
-        int indexMinElement = start;
+        int minElementIndex = start;
         int minElement = a[start];
 
-        if (start == a.length - 1) {
-            return indexMinElement;
-        } else if (start < a.length - 1) {
-            for (int i = start + 1; i < a.length; ++i) {
-                if (minElement > a[i]) {
-                    minElement = a[i];
-                    indexMinElement = i;
-                }
+        for (int i = start + 1; i < a.length; ++i) {
+            if (minElement > a[i]) {
+                minElement = a[i];
+                minElementIndex = i;
             }
         }
-        return indexMinElement;
+        return minElementIndex;
     }
 
     public static void main(String[] args) {

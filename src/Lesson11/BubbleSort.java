@@ -4,24 +4,16 @@ import java.util.Arrays;
 
 public class BubbleSort {
 
-    public static void swapNeighboringElements(int[] array, int a, int b) {
-
-        int temp = array[a];
-        array[a] = array[b];
-        array[b] = temp;
-    }
-
     public static int[] bubbleSort(int[] array) {
-
-        if (array.length <= 1) {
-            return array;
-        }
 
         for (int i = 0; i < array.length - 1; ++i) {
             int countSwaps = 0;
+
             for (int j = 1; j < array.length - i; ++j) {
                 if (array[j - 1] > array[j]) {
-                    swapNeighboringElements(array, j - 1, j);
+                    int temp = array[j];
+                    array[j] = array[j - 1];
+                    array[j - 1] = temp;
                     countSwaps++;
                 }
             }
@@ -33,7 +25,7 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
-        int[] array = {1};
+        int[] array = {3, -6, 1, 2, -7, 9, 5, -4, -20};
         System.out.println(Arrays.toString(bubbleSort(array)));
     }
 }

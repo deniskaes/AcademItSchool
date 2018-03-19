@@ -3,42 +3,27 @@ package Lesson11;
 import java.util.Arrays;
 
 public class SelectionSort {
-    public static int indexMinElementArray(int[] a, int start) {
 
-        int indexMinElement = start;
-        int minElementArray = a[start];
+    public static int[] selectionSort(int[] array) {
 
-        if (start == a.length - 1) {
-            return indexMinElement;
-        }
-        for (int i = start; i < a.length; ++i) {
-            if (minElementArray > a[i]) {
-                minElementArray = a[i];
-                indexMinElement = i;
+        for (int i = 0; i < array.length - 1; ++i) {
+            int minElementIndex = i;
+            int minElementArray = array[i];
+
+            for (int j = i + 1; j < array.length; ++j) {
+                if (minElementArray > array[j]) {
+                    minElementArray = array[j];
+                    minElementIndex = j;
+                }
             }
+            array[minElementIndex] = array[i];
+            array[i] = minElementArray;
         }
-        return indexMinElement;
-    }
-
-    public static int[] selectionSort(int[] a) {
-
-        if (a.length <= 1) {
-            return a;
-        }
-
-        for (int i = 0; i < a.length; ++i) {
-            int indexMinElement = indexMinElementArray(a, i);
-            if (i != indexMinElement) {
-                int temp = a[i];
-                a[i] = a[indexMinElement];
-                a[indexMinElement] = temp;
-            }
-        }
-        return a;
+        return array;
     }
 
     public static void main(String[] args) {
-        int[] array = {3, -6, 1, 2, -7, 9, 5, -4, 8};
+        int[] array = {3, -6, 1, 2, -7, 9, 5, -4, -20};
         System.out.println(Arrays.toString(selectionSort(array)));
     }
 }
