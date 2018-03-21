@@ -6,11 +6,11 @@ public class InsertSort {
 
     public static int[] insertSort(int[] array) {
 
-        for (int i = 1; i < array.length ; ++i) {
-           if (array[i - 1] > array[i]) {
+        for (int i = 1; i < array.length; ++i) {
+            if (array[i - 1] > array[i]) {
                 int temp = array[i];
-                int j = i-1;
-                while (j>=0 && temp < array[j]){
+                int j = i - 1;
+                while (j >= 0 && temp < array[j]) {
                     array[j + 1] = array[j];
                     j--;
                 }
