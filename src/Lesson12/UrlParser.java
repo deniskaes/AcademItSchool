@@ -5,7 +5,7 @@ public class UrlParser {
     public static String urlParser(String s) {
         String addressSeparator = "://";
         int startIndex = s.indexOf("://") + addressSeparator.length();
-        int endIndex = s.indexOf("/", startIndex );
+        int endIndex = s.indexOf("/", startIndex);
         String serverName;
         if (endIndex == -1) {
             return serverName = s.substring(startIndex);
