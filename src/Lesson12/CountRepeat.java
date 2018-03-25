@@ -14,7 +14,7 @@ public class CountRepeat {
         textSearch = textSearch.toLowerCase();
         word = word.toLowerCase();
 
-        while (startIndex + wordLength <= textSearch.length() && (newIndex = textSearch.indexOf(word, startIndex)) != -1) {
+        while ((newIndex = textSearch.indexOf(word, startIndex)) != -1) {
             count++;
             startIndex = newIndex + wordLength;
         }
