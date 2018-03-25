@@ -12,8 +12,9 @@ public class CountRepeat {
         int newIndex;
         int wordLength = word.length();
         textSearch = textSearch.toLowerCase();
+        word = word.toLowerCase();
 
-        while ((newIndex = textSearch.indexOf(word, startIndex)) != -1 && startIndex < textSearch.length()) {
+        while (startIndex + wordLength <= textSearch.length() && (newIndex = textSearch.indexOf(word, startIndex)) != -1) {
             count++;
             startIndex = newIndex + wordLength;
         }
@@ -27,8 +28,11 @@ public class CountRepeat {
         try (Scanner scanner = new Scanner(new FileInputStream("..\\AcademItSchool\\src\\Lesson12\\input.txt"));) {
             while (scanner.hasNext()) {
                 sb.append(scanner.nextLine());
+                sb.append(System.lineSeparator());
+
             }
             System.out.println(countRepeat(sb.toString(), findString));
+
         }
 
 

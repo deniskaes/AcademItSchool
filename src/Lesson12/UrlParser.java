@@ -6,11 +6,11 @@ public class UrlParser {
         String addressSeparator = "://";
         int startIndex = s.indexOf(addressSeparator) + addressSeparator.length();
         int endIndex = s.indexOf("/", startIndex);
-        String serverName;
+
         if (endIndex == -1) {
-            return serverName = s.substring(startIndex);
+            return s.substring(startIndex);
         }
-        return serverName = s.substring(startIndex, endIndex);
+        return s.substring(startIndex, endIndex);
     }
 
     public static void main(String[] args) {
