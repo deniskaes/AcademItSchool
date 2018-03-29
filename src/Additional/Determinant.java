@@ -5,66 +5,43 @@ import java.util.Arrays;
 public class Determinant {
 
     public static double determinant(double[][] matrix) {
-        int size = matrix.length;
-        double epsilon = 0.00001;
 
-        for (int i = 0; i < size; ++i) {
+        if (matrix.length == 2) {
+            return matrix[0][0] * matrix[1][1] - matrix[1][0] * matrix[0][1];
+        }
 
-            if (Math.abs(matrix[i][i]) <= epsilon) {
-                boolean isDeterminantZero;
-                isDeterminantZero = true;
+        double determinant = 0;
+        int decayLine = 0;
 
-                for (int j = i + 1; j < size; ++j) {
+        for (int i = 0; i < matrix.length; ++i) {
+            double[][] minorMatrix = new double[matrix.length - 1][matrix.length - 1];
 
-                    if (Math.abs(matrix[j][i]) > epsilon) {
-                        isDeterminantZero = false;
-                        double[] temp = new double[size];
+            for (int k = 0; k < matrix.length - 1; ++k) {
 
-                        for (int m = 0; m < size; ++m) {
-                            temp[m] = matrix[i][m];
-                            matrix[i][m] = matrix[j][m];
-                            matrix[j][m] = temp[m];
-                        }
-
-                        break;
+                for (int m = 0; m < matrix.length - 1; ++m) {
+                    if (m >= i) {
+                        minorMatrix[k][m] = matrix[k + 1][m + 1];
+                    } else {
+                        minorMatrix[k][m] = matrix[k + 1][m];
                     }
                 }
-                if (isDeterminantZero) {
-                    return 0;
-                }
             }
 
-            for (int k = i + 1; k < size; ++k) {
-
-                double coefficient = matrix[k][i] / matrix[i][i];
-
-                if (Math.abs(coefficient) <= epsilon) {
-                    continue;
-                }
-
-                for (int j = 0; j < size; ++j) {
-                    matrix[k][j] = matrix[k][j] - matrix[i][j] * coefficient;
-                }
-            }
+            determinant += matrix[decayLine][i] * Math.pow(-1, i + decayLine) * determinant(minorMatrix);
         }
 
-        double determinant = 1;
-
-        for (int i = 0; i < size; ++i) {
-            determinant *= matrix[i][i];
-        }
         return determinant;
     }
 
     public static void main(String[] args) {
 
-        double[][] matrix = {{-7, 8, 9}, {4, 0, 6}, {1, -2, 3}};
-        double[][] matrixToTriangle = Arrays.copyOf(matrix, matrix.length);
+        double matrix[][] = {{-7, 8, 9, 5}, {4, 0, 6, 3}, {1, -2, 3, 6}, {4, 7, 1, 2}};
 
-        System.out.println("Размерность = " + matrix.length);
+        System.out.println("Матрица:");
         for (double[] e : matrix) {
             System.out.println(Arrays.toString(e));
         }
-        System.out.println("Определитель матрицы = " + determinant(matrixToTriangle));
+        System.out.println("размерность = " + matrix.length);
+        System.out.println("Определитель матрицы = " + determinant(matrix));
     }
 }
